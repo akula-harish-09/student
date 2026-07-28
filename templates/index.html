@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Student Management System</h1>
+
+<p style="text-align:center;">
+    <a href="/add">Add Student</a>
+</p>
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Course</th>
+    <th>Actions</th>
+</tr>
+
+{% for student in students %}
+
+<tr>
+    <td>{{ student[0] }}</td>
+    <td>{{ student[1] }}</td>
+    <td>{{ student[2] }}</td>
+    <td>{{ student[3] }}</td>
+
+    <td>
+        <a href="/edit/{{ student[0] }}">Edit</a>
+        <a href="/delete/{{ student[0] }}">Delete</a>
+    </td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>
